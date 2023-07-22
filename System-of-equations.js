@@ -223,7 +223,7 @@ function solve(){
             break;
         }
       if(flag){
-        info=`\u8592 Rearrange the matrix so pivot ≠ 0`;
+        info=`<-- Rearrange the matrix so pivot ≠ 0`;
         stepsMatrix+=printStep(matrix,info);
       }
     }
@@ -238,7 +238,7 @@ function solve(){
             if(!(matrix[b][j].equals(new Fraction(0,1)))){
               for(let a=j;a<matrix[b].length;a++){
                 matrix[b][a]=matrix[b][a].subtract(matrix[i][a].multiply(pivot));}
-              info=(pivot.numerator>0)?`\u8592 R${i+2} = R${i+2} - (${pivot}) R${i+1}`:`\u8592 R${i+2} = R${i+2} + (${pivot.multiply(new Fraction(-1))}) R${i+1}`;
+              info=(pivot.numerator>0)?`<-- R${i+2} = R${i+2} - (${pivot}) R${i+1}`:`<-- R${i+2} = R${i+2} + (${pivot.multiply(new Fraction(-1))}) R${i+1}`;
               stepsMatrix+=printStep(matrix,info);
             }
           }
@@ -264,7 +264,7 @@ function solve(){
       info=`(${matrix[i][i]}) X${i+1}`
       for(let j=i+1,k=0;j<matrix[0].length-1;j++,k++)
         info+=`+ (${matrix[i][j]})(${variables[k][0]}) `
-      info+=`= ${matrix[i][matrix[i].length-1]} \u8594 X${i+1} = ${variables[variables.length-1][0]}`
+      info+=`= ${matrix[i][matrix[i].length-1]} --> X${i+1} = ${variables[variables.length-1][0]}`
       stepsMatrix+=printStep(matrix,info);
       }
       function check2(){
@@ -324,7 +324,7 @@ function solve(){
       else
         for(let k=0;k<variables[z].length;k++)
           string2+=(variables[z][k].number.numerator>0 && k!==0)?`+ ${variables[z][k]} `:(variables[z][k].number.numerator<0 && k!==0)?`- ${(variables[z][k].multiply(new unknown(new Fraction(-1))))} `:` ${variables[z][k]} `;
-      info+=` = ${matrix[i][matrix[i].length-1]} \u8594 X${i+1} = ${string2}`
+      info+=` = ${matrix[i][matrix[i].length-1]} --> X${i+1} = ${string2}`
       stepsMatrix+=printStep(matrix,info);
       }}
     }
