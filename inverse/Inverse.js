@@ -212,7 +212,7 @@ function solve(){
           }
         }
         if(flag){
-          info=`← Rearrange the matrix so pivot ≠ 0 <br><br> matrix sign = (${sign>0?"+":"-"}) .(sign changes everytime a row is switched)`;
+          info=`&larr; Rearrange the matrix so pivot ≠ 0 <br><br> matrix sign = (${sign>0?"+":"-"}) .(sign changes everytime a row is switched)`;
           stepsMatrix+=printStep(matrix,info);
         }
         return sign;
@@ -227,7 +227,7 @@ function solve(){
               if(!(copyMatrix[b][j].equals(new Fraction(0,1)))){
                 for(let a=j;a<copyMatrix[b].length;a++){
                   copyMatrix[b][a]=copyMatrix[b][a].subtract(copyMatrix[i][a].multiply(pivot));}
-                  info=(pivot.numerator>0)?`← R${i+2} = R${i+2} - (${pivot}) R${i+1}`:`← R${i+2} = R${i+2} + (${pivot.multiply(new Fraction(-1))}) R${i+1}`;
+                  info=(pivot.numerator>0)?`&larr; R${i+2} = R${i+2} - (${pivot}) R${i+1}`:`&larr; R${i+2} = R${i+2} + (${pivot.multiply(new Fraction(-1))}) R${i+1}`;
                   stepsMatrix+=printStep(copyMatrix,info);
                 }}}}
        let determinant=new Fraction(1);
@@ -257,7 +257,7 @@ function solve(){
         matrix[i].push(new Fraction());
       }
     }
-  info="← Identity matrix was added.";
+  info="&larr; Identity matrix was added.";
   stepsMatrix+=printStep(matrix,info);
   let flag= arrange(matrix);
   function arrange(matrix){
@@ -282,7 +282,7 @@ function solve(){
         return false;
       }
   if(flag){
-    info="← Rearrange the matrix so pivot ≠ 0.";
+    info="&larr; Rearrange the matrix so pivot ≠ 0.";
     stepsMatrix+=printStep(matrix,info);
   }
   gauss(matrix);
@@ -294,7 +294,7 @@ function solve(){
             let pivot=matrix[i][j];//making the pivot=1
             for (let k=0;k<matrix[i].length; k++)
               matrix[i][k]=matrix[i][k].divide(pivot);
-            info=info=(pivot.numerator>0&&pivot.denominator===1)?`← R${i+1} = (1/${pivot}) R${i+1}`:(pivot.numerator<0&&pivot.denominator===1)?`← R${i+1} = (-1/${-pivot.numerator}) R${i+1}`:(pivot.denominator!==1&&pivot.numerator==1)?`← R${i+1} = (${pivot.denominator}) R${i+1}`:(pivot.denominator!==1&&pivot.numerator>0)?`← R${i+1} = (${pivot.denominator}/${pivot.numerator}) R${i+1}`:`← R${i+1} = (${-pivot.denominator}/${-pivot.numerator}) R${i+1}`
+            info=info=(pivot.numerator>0&&pivot.denominator===1)?`&larr; R${i+1} = (1/${pivot}) R${i+1}`:(pivot.numerator<0&&pivot.denominator===1)?`&larr; R${i+1} = (-1/${-pivot.numerator}) R${i+1}`:(pivot.denominator!==1&&pivot.numerator==1)?`&larr; R${i+1} = (${pivot.denominator}) R${i+1}`:(pivot.denominator!==1&&pivot.numerator>0)?`&larr; R${i+1} = (${pivot.denominator}/${pivot.numerator}) R${i+1}`:`&larr; R${i+1} = (${-pivot.denominator}/${-pivot.numerator}) R${i+1}`
             stepsMatrix+=printStep(matrix,info);
             }
           if(matrix[i][j].equals(new Fraction(1))){//starting to divide under the pivot
@@ -303,7 +303,7 @@ function solve(){
                 if (!(matrix[b][j].equals(new Fraction())))
                   for (let a=j;a<matrix[b].length;a++)
                     matrix[b][a] = matrix[b][a].subtract(matrix[i][a].multiply(pivot));
-                    info=(pivot.numerator>0)?`← R${i+2} = R${i+2} - (${pivot}) R${i+1}`:`← R${i+2} = R${i+2} + (${pivot.multiply(new Fraction(-1))}) R${i+1}`;
+                    info=(pivot.numerator>0)?`&larr; R${i+2} = R${i+2} - (${pivot}) R${i+1}`:`&larr; R${i+2} = R${i+2} + (${pivot.multiply(new Fraction(-1))}) R${i+1}`;
                     stepsMatrix+=printStep(matrix,info);
                   }
                 }
@@ -319,7 +319,7 @@ function solve(){
             let pivot =matrix[i][j];
             for (let k=0;k<matrix[i].length;k++)
               matrix[i][k]=matrix[i][k].divide(pivot);
-              info=info=(pivot.numerator>0&&pivot.denominator===1)?`← R${i+1} = (1/${pivot}) R${i+1}`:(pivot.numerator<0&&pivot.denominator===1)?`← R${i+1} = (-1/${-pivot}) R${i+1}`:(pivot.denominator!==1&&pivot.numerator==1)?`← R${i+1} = (${pivot.denominator}) R${i+1}`:(pivot.denominator!==1&&pivot.numerator>0)?`← R${i+1} = (${pivot.denominator}/${pivot.numerator}) R${i+1}`:`← R${i+1} = (${-pivot.denominator}/${-pivot.numerator}) R${i+1}`
+              info=info=(pivot.numerator>0&&pivot.denominator===1)?`&larr; R${i+1} = (1/${pivot}) R${i+1}`:(pivot.numerator<0&&pivot.denominator===1)?`&larr; R${i+1} = (-1/${-pivot}) R${i+1}`:(pivot.denominator!==1&&pivot.numerator==1)?`&larr; R${i+1} = (${pivot.denominator}) R${i+1}`:(pivot.denominator!==1&&pivot.numerator>0)?`&larr; R${i+1} = (${pivot.denominator}/${pivot.numerator}) R${i+1}`:`&larr; R${i+1} = (${-pivot.denominator}/${-pivot.numerator}) R${i+1}`
               stepsMatrix+=printStep(matrix,info);
             }
             if(matrix[i][j].equals(new Fraction(1))) {
@@ -328,7 +328,7 @@ function solve(){
                 if (!(matrix[b][j].equals(new Fraction())))
                   for (let a=0;a<matrix[i].length; a++)
                     matrix[b][a]=matrix[b][a].subtract(matrix[i][a].multiply(pivot));
-                    info=(pivot.numerator>0)?`← R${i} = R${i} - (${pivot}) R${i+1}`:`← R${i} = R${i} + (${pivot.multiply(new Fraction(-1))}) R${i+1}`;
+                    info=(pivot.numerator>0)?`&larr; R${i} = R${i} - (${pivot}) R${i+1}`:`&larr; R${i} = R${i} + (${pivot.multiply(new Fraction(-1))}) R${i+1}`;
                     stepsMatrix+=printStep(matrix,info);
                   }
                 }
