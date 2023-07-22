@@ -297,13 +297,17 @@ function solve(){
         for(let j=matrix[i].length-2,k=0;j>i;j--,k++)
           for(let a=0;a<variables[k].length;a++)
             x.push(((variables[k][a]).multiply(new unknown(matrix[i][j]))).multiply(new unknown(new Fraction(-1))));
-        for(let i=0;x.length>0;x.splice(0,1)){
+        for(let i=0;0<x.length;x.splice(0,1)){
           for(let j=i+1;j<x.length;j++)
             if(x[i].equals(x[j])){
               x[i]=x[i].add(x[j]);
               x.splice(j,1);
             }
           answers.push(x[0]);
+          if(answers[answers.length-1].equals(answers[answers.length-2])){
+          answers[answers.length-2]=answers[answers.length-1].add(answers[answers.length-2])
+          answers.splice((answers.length-1),1);
+          }
         }
         for(let z=0;z<answers.length;z++)
           answers[z]=answers[z].divide(new unknown(matrix[i][i]));
