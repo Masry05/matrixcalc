@@ -201,7 +201,7 @@ function arrange(matrix){
       }
     }
     if(flag){
-      info=`← Rearrange the matrix so pivot ≠ 0 <br><br> matrix sign = (${sign>0?"+":"-"}) .(sign changes everytime a row is switched)`;
+      info=`&larr; Rearrange the matrix so pivot ≠ 0 <br><br> matrix sign = (${sign>0?"+":"-"}) .(sign changes everytime a row is switched)`;
       stepsMatrix+=printStep(matrix,info);
     }
     return sign;
@@ -216,7 +216,7 @@ function determinant(determinantSign){
           if(!(matrix[b][j].equals(new Fraction(0,1)))){
             for(let a=j;a<matrix[b].length;a++){
               matrix[b][a]=matrix[b][a].subtract(matrix[i][a].multiply(pivot));}
-              info=(pivot.numerator>0)?`← R${i+2} = R${i+2} - (${pivot}) R${i+1}`:`← R${i+2} = R${i+2} + (${pivot.multiply(new Fraction(-1))}) R${i+1}`;
+              info=(pivot.numerator>0)?`&larr; R${i+2} = R${i+2} - (${pivot}) R${i+1}`:`&larr; R${i+2} = R${i+2} + (${pivot.multiply(new Fraction(-1))}) R${i+1}`;
               stepsMatrix+=printStep(matrix,info);
             }}}}
    let determinant=new Fraction(1);
