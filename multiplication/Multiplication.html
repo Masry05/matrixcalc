@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <title>Multiplication</title>
+<head>
+  <link rel="stylesheet" href="/styles/general.css">
+  <link rel="stylesheet" href="/styles/sidebar.css">
+  <link rel="stylesheet" href="/styles/multiplication-page.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Multiplication</title>
+<head>
+<body>
+  <div class="title"><a onclick="href='/index.html'">Matrix Calculator</a></div>
+   <a class="pagetype">Multiplication</a>
+  <div class="sidebar">
+    <div class="options-group">
+     <a class="options" onclick="href='/inverse/Inverse.html'" >inverse</a>
+     <a class="options" onclick="href='/determinant/Determinant.html'" >Determinant</a>
+     <a class="options" onclick="href='/system-of-equations/System-of-equations.html'" >System of equations</a>
+    </div>
+    <button class="hide" id="movebar"
+    onmousedown="dragElement(document.querySelector('.sidebar'))" onclick="hide();">&lt;</button>
+  </div>
+  <div class="area">
+    <div class="size">
+      <div class="matrix-name">
+      <a>Matrix 1</a><br>
+      </div>
+      <div class="matrix-size">
+      <a>Rows:</a>
+      <input type="number" class="js-size" placeholder="1" id="js-row-matrix1" min="1" onkeydown="if(event.key=='Enter') document.getElementById('js-column-matrix1').focus();">
+      <a>Columns:</a>
+      <input type="number" class="js-size" placeholder="1" min="1" id="js-column-matrix1" onchange="setLimit(id);setMatrix(2);" onkeydown="if(event.key=='Enter'){
+      document.getElementById('js-column-matrix2').focus();
+      setMatrix(1);}">
+      <button class="js-size-button" onclick="setMatrix(1)">Set matrix</button>
+      </div>
+      <div class="js-input" id="js.input1">
+        
+      </div>
+      <div class="matrix-name">
+        <a>Matrix 2</a><br>
+      </div>
+      <div>
+      <a>Rows:</a>
+      <input type="number" class="js-size" placeholder="1" min="1" id="js-row-matrix2" onchange="setLimit(id);setMatrix(1);" onkeydown="if(event.key=='Enter'){document.getElementById('js-column-matrix2').focus();
+      setMatrix(2);}" onkeydown="if(event.key=='Enter') document.getElementById('js-column-matrix2').focus()">
+      <a>Columns:</a>
+      <input type="number" class="js-size" placeholder="1" id="js-column-matrix2" min="1" onkeydown="if(event.key=='Enter'){
+      setMatrix(2);
+      document.getElementById('0,0,1').focus();}">
+      <button class="js-size-button" onclick="setMatrix(2);">Set matrix</button>
+      </div>
+      <div class="js-input" id="js.input2">
+      </div>
+    </div>
+    <div class="js-solution solution">
+    </div>
+    <div class="js-steps steps">
+    </div>
+    </div>
+  <script src="/multiplication/Multiplication.js">
+  </script>
+  </body>
+</html>

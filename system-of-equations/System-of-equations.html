@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="/styles/general.css">
+ <link rel="stylesheet" href="/styles/sidebar.css">
+ <link rel="stylesheet" href="/styles/system-of-equations-page.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+ <title>System of equations</title>
+</head>
+<body>
+  <div class="title"><a onclick="href='/index.html'">Matrix Calculator</a></div>
+  <a class="pagetype">System of equations</a>
+  <div class="sidebar">
+    <div class="options-group">
+      <a class="options" onclick="href='/inverse/Inverse.html'" >Inverse</a>
+      <a class="options" onclick="href='/determinant/Determinant.html'" >Determinant</a>
+      <a class="options" onclick="href='/multiplication/Multiplication.html'">Multiplication</a>
+    </div>
+    <button class="hide" id="movebar"
+    onmousedown="dragElement(document.querySelector('.sidebar'))" onclick="hide();">&lt;</button>
+  </div>
+  <div class="area">
+  <div class="size">
+    <a>Enter number of variables:</a>
+    <input type="number" class="js-size" min="2" onkeydown="
+    if(event.key=='Enter')
+    document.querySelector('.js-equation-size').focus();"
+    onchange="if(document.querySelector('.js-equation-size').value!=='')setMatrix();">
+    <br><br><a>Enter number of equations:</a>
+    <input type="number" class="js-equation-size" min="1" onkeydown="
+    if(event.key=='Enter')
+    setMatrix();" onchange="setMatrix();">
+  </div>
+  <div class="js-inputs inputs">
+  </div>
+  <div class="js-solution solution">
+  </div>
+  <div class="js-steps steps">
+  </div>
+  </div>
+  <script src="/system-of-equations/System-of-equations.js">
+  </script>
+  </body>
+</html>

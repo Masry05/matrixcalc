@@ -1,0 +1,114 @@
+.solution{
+  align-self: center;
+}
+.hide-steps{
+  margin-left: 15px;
+  background-color: #151518;
+  border-style: solid;
+  border-color: rgb(162, 173, 66);
+  color: rgb(162, 173, 66);
+  width: 90px;
+  height: 40px;
+  border-radius: 5px;
+  cursor:pointer;
+}
+.hide-steps:hover{
+  background-color: rgb(162, 173, 66);
+  border-style: solid;
+  color: #151518;
+  box-shadow: 2px 2px 10px white;
+  transition:background-color,border-style,color,box-shadow 0.15s ;
+}
+.hide-steps:active{
+  background-color: rgb(162, 173, 66);
+  border-style: solid;
+  color: #151518;
+  box-shadow:none;
+}
+.steps{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-top: 15px;
+}
+.step-matrix{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+}
+.step-text{
+  margin-left: 15px;
+  color: white;
+  align-self: center;
+}
+.step-table{
+  position: relative;
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top:20px;
+  align-self: center;
+  border-style: solid;
+  border-top: none;
+  border-bottom:none;
+}
+.column{
+  align-self: center;
+  margin-right: 30px;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  align-self: center;
+}
+.show-button{
+  display: flex;
+  align-self:center;
+}
+.show-steps{
+  margin-left: 15px;
+  background-color: #151518;
+  border-style: solid;
+  border-color: rgb(154, 102, 160);
+  color: rgb(154, 102, 160);
+  width: 90px;
+  height: 40px;
+  border-radius: 5px;
+  cursor:pointer;
+  align-self:center;
+}
+.show-steps:hover{
+  background-color: rgb(154, 102, 160);
+  border-style: solid;
+  color: #151518;
+  box-shadow: 2px 2px 10px white;
+  transition:background-color,border-style,color,box-shadow 0.15s ;
+}
+.show-steps:active{
+  background-color: rgb(154, 102, 160);
+  border-style: solid;
+  color: #151518;
+  box-shadow:none;
+}
+.absolute1{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-style: solid;
+  border-left: none;
+  border-right:none;
+  width: 15px;
+}
+.absolute2{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border-style: solid;
+  border-left: none;
+  border-right:none;
+  width: 15px;
+}
