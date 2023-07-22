@@ -304,14 +304,16 @@ function solve(){
               x.splice(j,1);
             }
           answers.push(x[0]);
-          if(answers[answers.length-1].equals(answers[answers.length-2])){
-          answers[answers.length-2]=answers[answers.length-1].add(answers[answers.length-2])
-          answers.splice((answers.length-1),1);
-          }
         }
         for(let z=0;z<answers.length;z++)
           answers[z]=answers[z].divide(new unknown(matrix[i][i]));
         variables.push(answers);
+        for(let i=0;i<variables.length;i++)
+          if(variables[i].length>1)
+            if(variables[i][variables[i].length-1].equals(variables[i][variables[i].length-2])){
+              variables[i][variables[i].length-2]=variables[i][variables[i].length-1].add(variables[i][variables[i].length-2])
+              variables[i].splice((variables[i].length-1),1);
+            }
       }
       if(matrix[i][i].numerator!==0){
       info=`(${matrix[i][i]}) X${i+1}`;
