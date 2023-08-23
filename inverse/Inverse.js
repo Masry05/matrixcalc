@@ -385,7 +385,7 @@ function dragElement(elmnt) {
 const myElement=document.getElementById("movebar");
 myElement.addEventListener("touchstart", startTouch, false);
 myElement.addEventListener("touchmove", moveTouch, false);
- 
+myElement.addEventListener("touchend", endTouch, false);
 // Swipe Up / Down
 let initialY = null;
 function startTouch(e) {
@@ -393,18 +393,20 @@ function startTouch(e) {
 };
  
 function moveTouch(e) {
+  console.log("working");
   if (initialY === null) {
     return;
   }
   let currentY = e.touches[0].clientY;
-  
+  console.log(e.touches[0].clientY);
   let diffY = initialY - currentY;
  
   if((document.querySelector(".sidebar").offsetTop - diffY)>=200)
       document.querySelector(".sidebar").style.top = (document.querySelector(".sidebar").offsetTop - diffY) + "px";
-  initialY = null;
-  e.preventDefault();
 };
+function endTouch(e){
+  initialY = null;
+}
 //hide sidebar
 function hide(){
   document.querySelector(".sidebar").innerHTML=`<button class="show" onmousedown="dragElement(document.querySelector('.sidebar'))" id="movebar" onclick="show();">&gt;</button>`;}

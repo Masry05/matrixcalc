@@ -201,7 +201,7 @@ function arrange(matrix){
       }
     }
     if(flag){
-      info=`&larr; Rearrange the matrix so pivot &#8800; 0 <br><br> matrix sign = (${sign>0?"+":"-"}) .(sign changes everytime a row is switched)`;
+      info=`&larr; Rearrange the matrix so pivot &#8800; 0 <br><br> matrix sign = (${sign>0?"+":"-"}).  (sign changes everytime a row is switched)`;
       stepsMatrix+=printStep(matrix,info);
     }
     return sign;
