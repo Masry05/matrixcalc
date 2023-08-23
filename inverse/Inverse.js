@@ -400,7 +400,7 @@ function moveTouch(e) {
   
   let diffY = initialY - currentY;
  
-  if(currentY>=200)
+  if((document.querySelector(".sidebar").offsetTop - diffY)>=200)
       document.querySelector(".sidebar").style.top = (document.querySelector(".sidebar").offsetTop - diffY) + "px";
   initialY = null;
   e.preventDefault();
