@@ -223,7 +223,7 @@ function solve(){
             break;
         }
       if(flag){
-        info=`&larr; Rearrange the matrix so pivot ≠ 0`;
+        info=`&larr; Rearrange the matrix so pivot &#8800; 0`;
         stepsMatrix+=printStep(matrix,info);
       }
     }
