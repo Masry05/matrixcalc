@@ -373,7 +373,7 @@ function dragElement(elmnt) {
     e = e || window.event;
     pos2 = pos4 - e.clientY;
     pos4 = e.clientY;
-    if(pos4>=200)
+    if((elmnt.offsetTop - pos2)>=160)
       elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
   }
   function closeDragElement() {
@@ -381,6 +381,30 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
+//swip sidebar
+const myElement=document.getElementById("movebar");
+myElement.addEventListener("touchstart", startTouch, false);
+myElement.addEventListener("touchmove", moveTouch, false);
+ 
+// Swipe Up / Down
+let initialY = null;
+function startTouch(e) {
+  initialY = e.touches[0].clientY;
+};
+ 
+function moveTouch(e) {
+  if (initialY === null) {
+    return;
+  }
+  let currentY = e.touches[0].clientY;
+  
+  let diffY = initialY - currentY;
+ 
+  if(currentY>=200)
+      document.querySelector(".sidebar").style.top = (document.querySelector(".sidebar").offsetTop - diffY) + "px";
+  initialY = null;
+  e.preventDefault();
+};
 //hide sidebar
 function hide(){
   document.querySelector(".sidebar").innerHTML=`<button class="show" onmousedown="dragElement(document.querySelector('.sidebar'))" id="movebar" onclick="show();">&gt;</button>`;}
