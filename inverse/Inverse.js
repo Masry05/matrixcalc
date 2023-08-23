@@ -382,41 +382,37 @@ function dragElement(elmnt) {
   }
 }
 //swip sidebar
-const myElement=document.getElementById("movebar");
-myElement.addEventListener("touchstart", startTouch, false);
-myElement.addEventListener("touchmove", moveTouch, false);
-myElement.addEventListener("touchend", endTouch, false);
-// Swipe Up / Down
+function swipeElement(){
 let initialY = null;
+document.ontouchstart = startTouch;
 function startTouch(e) {
   initialY = e.touches[0].clientY;
+  document.ontouchmove = moveTouch;
+  document.ontouchend = endTouch;
 };
- 
 function moveTouch(e) {
-  console.log("working");
   if (initialY === null) {
     return;
   }
   let currentY = e.touches[0].clientY;
-  console.log(e.touches[0].clientY);
   let diffY = initialY - currentY;
  
   if((document.querySelector(".sidebar").offsetTop - diffY)>=200)
-      document.querySelector(".sidebar").style.top = (document.querySelector(".sidebar").offsetTop - diffY) + "px";
+      document.querySelector(".sidebar").style.top = -95+ e.touches[0].clientY+ "px";
 };
 function endTouch(e){
   initialY = null;
-}
+}}
 //hide sidebar
 function hide(){
-  document.querySelector(".sidebar").innerHTML=`<button class="show" onmousedown="dragElement(document.querySelector('.sidebar'))" id="movebar" onclick="show();">&gt;</button>`;}
+  document.querySelector(".sidebar").innerHTML=`<button class="show" id="movebar" onmousedown="dragElement(document.querySelector('.sidebar'))" id="movebar" onclick="show();">&gt;</button>`;}
 function show(){
   document.querySelector(".sidebar").innerHTML=`<div class="options-group">
   <a class="options" onclick="href='/determinant/Determinant.html'" >Determinant</a>
   <a class="options" onclick="href='/multiplication/Multiplication.html'">Multiplication</a>
   <a class="options" onclick="href='/system-of-equations/System-of-equations.html'" >System of equations</a>
 </div>
-<button class="hide" onmousedown="dragElement(document.querySelector('.sidebar'))" id="movebar" onclick="hide();">&lt;</button>`;
+<button class="hide" id="movebar" onmousedown="dragElement(document.querySelector('.sidebar'))" id="movebar" onclick="hide();">&lt;</button>`;
 }
 function showDeterminant(){
   if(document.querySelector(".show-buttons").innerHTML.charAt(102)==="s"||document.querySelector(".show-buttons").innerHTML.charAt(128)==="s")
@@ -473,7 +469,6 @@ function showDeterminantSteps(){
   document.querySelector(".show2").innerHTML=`<div class="show-buttons"><button class="hide-determinant" onclick="hideDeterminant();">Hide determinant</button><button class="show-steps" onclick="steps()">Show steps</button></div>`;
   document.querySelector(".show2").innerHTML+=`<div class="determinant">Determinant= ${determinantM[0]}</div>`;
   document.querySelector(".show2").innerHTML+=`<div class="determinant-steps"><button class="hide-determinant-steps" onclick="hideDeterminantSteps()">Hide determinant steps</button></div>`;
-  console.log(determinantStepsList[0]);
   document.querySelector(".js-steps").innerHTML=determinantStepsList[0];
 }
 function hideDeterminantSteps(){

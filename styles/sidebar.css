@@ -20,6 +20,7 @@
   border-color: rgb(15, 51, 83);
   margin-left:140px;
   width: 25px;
+  height: 189px;
   cursor: ns-resize	;
 }
 .show{
@@ -33,6 +34,7 @@
   border-bottom-right-radius: 10px;
   border-color: rgb(15, 51, 83);
   width: 25px;
+  height: 189px;
   cursor: ns-resize	;
 }
 .hide:hover{
