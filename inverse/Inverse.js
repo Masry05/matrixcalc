@@ -212,7 +212,7 @@ function solve(){
           }
         }
         if(flag){
-          info=`&larr; Rearrange the matrix so pivot ≠ 0 <br><br> matrix sign = (${sign>0?"+":"-"}) .(sign changes everytime a row is switched)`;
+          info=`&larr; Rearrange the matrix so pivot &#8800; 0 <br><br> matrix sign = (${sign>0?"+":"-"}) .(sign changes everytime a row is switched)`;
           stepsMatrix+=printStep(matrix,info);
         }
         return sign;
@@ -282,7 +282,7 @@ function solve(){
         return false;
       }
   if(flag){
-    info="&larr; Rearrange the matrix so pivot ≠ 0.";
+    info="&larr; Rearrange the matrix so pivot &#8800; 0.";
     stepsMatrix+=printStep(matrix,info);
   }
   gauss(matrix);
