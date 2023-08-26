@@ -4,9 +4,10 @@
   font-family: Montserrat;
   font-weight: 500;
   left: 0px;
-  top:300px;
+  top: 70%;
   cursor: pointer;
   height: 188px;
+  z-index: 2;
 }
 .hide{
   font-family: Montserrat;
