@@ -154,7 +154,6 @@ input{
 }
 .content{
   display: flex;
-  position: absolute;
   left: 0px;
   right: 0px;
   height: 90%;
