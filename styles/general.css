@@ -156,7 +156,7 @@ input{
   display: flex;
   left: 0px;
   right: 0px;
-  height: 90%;
+  min-height: 90vh
 }
 .ad-left{
   display: flex;
